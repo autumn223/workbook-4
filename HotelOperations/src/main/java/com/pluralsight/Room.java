@@ -29,11 +29,40 @@ public class Room {
         return dirty;
     }
 
-     public boolean isAvailable() {
-         return !occupied && !dirty;
-     }
-}
+    public boolean isAvailable() {
+        return !occupied && !dirty;
+    }
 
+    public void checkIn() {
+        if (isAvailable()) {
+            occupied = true;
+            dirty = true;
+            System.out.println("Room checked in.");
+        } else {
+            System.out.println("Room isn't available for check-in.");
+        }
+
+    }
+
+    public void checkOut() {
+        if (occupied) {
+            occupied = false;
+            System.out.println("Guest has checked out. Room needs to be cleaned.");
+
+        } else {
+            System.out.println("Room is already empty.");
+        }
+    }
+
+    public void cleanRoom() {
+        if (dirty) {
+            dirty = false;
+            System.out.println("Room cleaned.");
+        } else {
+            System.out.println("Room is already cleaned.");
+        }
+    }
+}
 
 
 

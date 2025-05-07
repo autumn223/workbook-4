@@ -9,6 +9,14 @@ public class Main {
         System.out.println("Occupied: " + room1.isOccupied());
         System.out.println("Dirty: " + room1.isDirty());
         System.out.println("Available: " + room1.isAvailable());
+
+        System.out.println("Checking in...");
+        room1.checkIn();
+        System.out.println("Checking out...");
+        room1.checkOut();
+        System.out.println("Cleaning room...");
+        room1.cleanRoom();
+        System.out.println("Available after checkout & cleaning: " + room1.isAvailable());
         System.out.println();
 
         Reservation res1 = new Reservation("king", 2, true);
@@ -26,6 +34,12 @@ public class Main {
         System.out.println("Name: " + emp1.getName());
         System.out.println("Department: " + emp1.getDepartment());
         System.out.println("Pay Rate: $" + emp1.getPayRate());
+
+        System.out.println("Punching in at 9.0...");
+        emp1.punchIn(9.0); // Start at 9 AM
+        System.out.println("Punching out at 17.5...");
+        emp1.punchOut(17.5); // Finish at 5:30 PM (8.5 hours)
+
         System.out.println("Hours Worked: " + emp1.getHoursWorked());
         System.out.println("Regular Hours: " + emp1.getRegularHours());
         System.out.println("Overtime Hours: " + emp1.getOvertimeHours());
