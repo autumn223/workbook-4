@@ -35,10 +35,10 @@ public class Main {
         System.out.println("Department: " + emp1.getDepartment());
         System.out.println("Pay Rate: $" + emp1.getPayRate());
 
-        System.out.println("Punching in at 9.0...");
-        emp1.punchIn(9.0); // Start at 9 AM
-        System.out.println("Punching out at 17.5...");
-        emp1.punchOut(17.5); // Finish at 5:30 PM (8.5 hours)
+        System.out.println("Punching in (current time)...");
+        emp1.punchIn();
+        System.out.println("Punching out (current time)...");
+        emp1.punchOut();
 
         System.out.println("Hours Worked: " + emp1.getHoursWorked());
         System.out.println("Regular Hours: " + emp1.getRegularHours());

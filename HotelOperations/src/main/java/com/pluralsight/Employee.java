@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Calendar;
+
 public class Employee {
     private String employeeId;
     private String name;
@@ -7,7 +9,6 @@ public class Employee {
     private double payRate;
     private double hoursWorked;
     private double startTime;
-
 
 
     public Employee(String employeeId, String name, String department, double payRate, double hoursWorked) {
@@ -69,11 +70,33 @@ public class Employee {
 
     public void punchIn(double time) {
         this.startTime = time;
+        System.out.println("Punched in at: " + time);
+    }
+
+    public void punchIn() {
+        Calendar now = Calendar.getInstance();
+        int hour = now.get(Calendar.HOUR_OF_DAY);
+        int minute = now.get(Calendar.MINUTE);
+        this.startTime = hour + (minute / 60.0);
+        System.out.println("Punched in at: " + this.startTime);
     }
 
     public void punchOut(double time) {
         // Calculate hours worked using the punchIn start time
         double hoursWorkedToday = time - startTime; // Calculate time worked since punchIn
-        this.hoursWorked += hoursWorkedToday; // Add to total hours worked
+        this.hoursWorked += hoursWorkedToday;// Add to total hours worked
+        System.out.println("Punched out at: " + time);
+        System.out.println("Worked hours: " + hoursWorkedToday);
+    }
+
+    public void punchOut() {
+        Calendar now = Calendar.getInstance();
+        int hour = now.get(Calendar.HOUR_OF_DAY);
+        int minute = now.get(Calendar.MINUTE);
+        double endTime = hour + (minute / 60.0);
+        double hoursWorkedToday = endTime - startTime;
+        this.hoursWorked += hoursWorkedToday;
+        System.out.println("Punched out at: " + endTime);
+        System.out.println("Worked hours today: " + hoursWorkedToday);
     }
 }
